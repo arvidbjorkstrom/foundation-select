@@ -1,6 +1,6 @@
 .custom-dropdown-area {
-  display: inline-block;
   margin: 0;
+  margin-bottom: 1rem;
   position:relative;
   min-width: 250px;
 }
