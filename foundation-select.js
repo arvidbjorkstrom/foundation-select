@@ -9,9 +9,14 @@
       return this.each(function () {
         select = $(this);
         selectId = select.attr('id');
+        if(!select.data('prompt') && select.find('option').first().prop('disabled') && (typeof select.find('option').first().attr('value') == 'undefined' || !select.find('option').first().attr('value').length)) {
+          select.data('prompt', select.find('option').first().text());
+          select.find('option').first().addClass('isprompt');
+        }
         selectOptions = [];
         selectedTitles = [];
         select.find('option').each( function () {
+          if($(this).hasClass('isprompt')) return;
           selectClasses = [];
           if ($(this).attr('selected')) {
             selectedTitles.push($(this).html());
